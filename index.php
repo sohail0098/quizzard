@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <img class="banner" src="banner.png" alt="logo" class="logo">
+        <a href="index.php"><img class="banner" src="banner.png" alt="logo"></a>
         <form method="post" action="validate.php">
             <label for="name">Name:</label><br />
             <input type="text"  id="name" name="name" placeholder="Enter your name" required>

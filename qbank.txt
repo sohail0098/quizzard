@@ -1,6 +1,6 @@
 In which Italian city can you find the Colosseum?|Venice|Rome|Naples|Milan|A##Rome
 In the TV show New Girl, which actress plays Jessica Day?|Zooey Deschanel|Kaley Cuoco|Jennifer Aniston|Alyson Hannigan|A##Zooey Deschanel
-What is the largest canyon in the world?|Verdon Gorge, France|King’s Canyon, Australia|Grand Canyon, USA|Fjaðrárgljúfur Canyon, Iceland|A##Grand Canyon
+What is the largest canyon in the world?|Verdon Gorge, France|King’s Canyon, Australia|Grand Canyon, USA|Fjaðrárgljúfur Canyon, Iceland|A##Grand Canyon, USA
 How long is the border between the United States and Canada?|3,525 miles|4,525 miles|5,525 miles|6,525 miles|A##5,525 miles
 What is the largest active volcano in the world?|Mount Etna|Mount Vesuvius|Mouna Loa|Mount Batur|A##Mouna Loa
 When did Lenin die?|21 January 1924|21 January 1934|21 January 1944|21 January 1954|A##21 January 1924

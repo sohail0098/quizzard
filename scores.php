@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <img class="banner" src="banner.png" alt="logo" class="logo">
+    <a href="index.php"><img class="banner" src="banner.png" alt="logo"></a>
     <h1>Leaderboard!</h1>    
     <table style="background: pink;">
         <tr>

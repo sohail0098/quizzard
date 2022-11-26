@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body style='margin: auto; text-align: center;'>
-    <img class="banner" src="banner.png" alt="logo" class="logo">
+    <a href="index.php"><img class="banner" src="banner.png" alt="logo"></a>
     <h1>Hooray!!</h1>
     <?php
         if (isset($_POST['name'])) {
@@ -59,28 +59,38 @@
                 $row = $queryResult->fetch_assoc();
                 $data[$i] = $row;
             }
-            for ($i = 0; $i < count($data); $i++) {
-                if ($name == $data[$i]["name"] && $email == $data[$i]["email"]) {
-                    if ($score > $data[$i]["score"]) {
-                        $sql = "UPDATE scores SET score = $score WHERE name = '$name' AND email = '$email'";
-                        $query = mysqli_query($conn, $sql);
+            if (count($data) == 0) {
+                $sql = "INSERT INTO scores (name, email, score) VALUES ('$name', '$email', '$score')";
+                $query = mysqli_query($conn, $sql);
+            } else {
+                for ($i = 0; $i < count($data); $i++) {
+                    if (strtolower($name) == strtolower($data[$i]["name"]) && strtolower($email) == strtolower($data[$i]["email"])) {
+                        if ($score > $data[$i]["score"]) {
+                            $sql = "UPDATE scores SET score = $score WHERE name = '$name' AND email = '$email'";
+                            $query = mysqli_query($conn, $sql);
+                        }
+                        break;
                     }
-                    break;
+                    else {
+                        $sql = "INSERT INTO scores (name, email, score) VALUES ('$name', '$email', '$score')";
+                        $query = mysqli_query($conn, $sql);
+                        break;
+                    }  
                 }
-                else {
-                    $sql = "INSERT INTO scores (name, email, score) VALUES ('$name', '$email', $score)";
-                    $query = mysqli_query($conn, $sql);
-                    break;
-                }  
             }
             echo "<h2>Thank you for taking the quiz, $name!</h2>";
             echo "<h3>Your score is $score out of $index.</h3>";
             echo "<h3>View the <a href='scores.php' target='_blank'>Scoreboard</a>!</h3>";
         }
+        unset($_POST); // Avoids forced resubmission of form data on refresh (else each refresh re-adds the score even with the check for existing name/email)
     ?>
 
-        <center style="margin-top: 50px;">
+    <center style="margin-top: 50px;">
         <button class="btn btn-primary" onclick="window.location.href='index.php'" style="background-color:red;border-color:red;">Back to the QUIZ!</button>
-        </center>
+    </center>
+    <div class="scoreboard">
+        <h2>View the Scoreboard!</h2>
+        <a id="breathing-button" href="scores.php" class="btn btn-primary" target="_blank" style="background-color: #1a7d35; border-color: #1a7d35;">Quiz Leaderboard</a>
+    </div>
 </body>
 </html>
